@@ -56,7 +56,11 @@ def pagerank(graph, damping_factor=0.85):
                 edge[0]] * damping_factor
 
         for page in pages:
-            page_importance_new[page] = page_importance_new[page] + (1 - damping_factor) * (
+            if page in out_deg:
+                multi_coeff=(1 - damping_factor)
+            else:
+                multi_coeff=1.0
+            page_importance_new[page] = page_importance_new[page] +  multi_coeff* (
                         1 + in_deg[page]) / num_in_degrees
 
         diff = [abs(page_importance_new[page] - page_importance[page]) for page in pages]

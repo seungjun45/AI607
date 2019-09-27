@@ -2,7 +2,7 @@ import sys
 
 import matplotlib.pyplot as plt
 import networkx as nx
-from preferential_attachment import *
+from random_graph import *
 import json
 import collections
 import matplotlib.pyplot as plt
